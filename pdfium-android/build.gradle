@@ -5,13 +5,14 @@ plugins {
 
 android {
     namespace 'com.bellalhossainmondal.pdfium'
-    compileSdk 35
+    compileSdk 36
 
     defaultConfig {
         minSdk 21
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        targetSdk 36
     }
 
     buildTypes {
@@ -25,7 +26,7 @@ android {
         targetCompatibility JavaVersion.VERSION_11
     }
 
-    ndkVersion "27.0.12077973"
+    ndkVersion '29.0.14033849 rc4'
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
@@ -46,6 +47,7 @@ android {
             withJavadocJar()
         }
     }
+    buildToolsVersion '36.0.0'
 }
 
 publishing {
@@ -53,7 +55,7 @@ publishing {
         release(MavenPublication) {
             groupId = "com.github.bellalhossainmondal"
             artifactId = "pdfium-android"
-            version = '1.0.0'
+            version = '1.0.1'
 
             afterEvaluate {
                 from components.release
